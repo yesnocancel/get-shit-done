@@ -55,6 +55,10 @@ switch ( $action ) {
       fwrite($fh, "127.0.0.1\t{$site}" . PHP_EOL);
       fwrite($fh, "127.0.0.1\twww.{$site}" . PHP_EOL);
     }
+    foreach ( $siteList as $site ) {
+      fwrite($fh, "fe80::1%lo0\t{$site}" . PHP_EOL);
+      fwrite($fh, "fe80::1%lo0\twww.{$site}" . PHP_EOL);
+    }
     fwrite($fh, $endToken . PHP_EOL);
 
     fclose($fh);

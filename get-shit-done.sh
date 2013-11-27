@@ -73,6 +73,12 @@ function work()
         echo -e "127.0.0.1\twww.$site" >> $file
     done
 
+    for site in "${site_list[@]}"
+    do
+        echo -e "fe80::1%lo0\t$site" >> $file
+        echo -e "fe80::1%lo0\twww.$site" >> $file
+    done
+
     echo $end_token >> $file
 
     $restart_network

@@ -67,6 +67,10 @@ def work():
         print("127.0.0.1\t" + site, file=hFile)
         print("127.0.0.1\twww." + site, file=hFile)
 
+    for site in set(site_list):
+        print("fe80::1%lo0\t" + site, file=hFile)
+        print("fe80::1%lo0\twww." + site, file=hFile)
+
     print(end_token, file=hFile)
 
     rehash()
